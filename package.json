@@ -1,5 +1,5 @@
 {
-  "name": "feature-flags",
+  "name": "feature-flags-teste",
   "version": "1.0.0",
   "description": "Feature Flags",
   "main": "lib/index.js",
