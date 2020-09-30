@@ -23,8 +23,11 @@ export class FFModule {
   isFeatureEnabled(featureName: string, userID: string): Promise<any> {
     const featurePromise = this.getFeatures();
 
-    return featurePromise.then((feature: any) => {
-      return feature !== undefined && feature.enabled ? true : false;
+    return featurePromise.then((features: any) => {
+        // tslint:disable-next-line:no-console
+        console.log(features);
+
+        return features;
     });
   }
 }
