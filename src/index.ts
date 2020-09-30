@@ -1,4 +1,4 @@
 'use strict';
 
 export { FFModule } from './FFModule';
-export { DEVICE }  from './Globals';
+export { DEVICE } from './Globals';

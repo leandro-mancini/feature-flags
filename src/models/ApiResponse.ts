@@ -1,5 +1,5 @@
 export class ApiResponse<T> {
-    data: T;
-    error: boolean;
-    messages: string[];
+  data: T;
+  error: boolean;
+  messages: string[];
 }

@@ -21,8 +21,6 @@ export class ApiFeature implements IFeature {
         return response.json();
       })
       .then((response) => {
-        
-
         return response;
       })
       .catch((ex) => {
