@@ -12,19 +12,16 @@ export class FFModule {
 
   constructor(device: DEVICE, url: string) {
     this.config = new FFConfig(device, url);
-
-    // tslint:disable-next-line:no-console
-    console.log(this.config);
   }
 
-  getFeature(featureName: string, userID: string): Promise<any> {
+  getFeatures(): Promise<any> {
     const apiFeature = new ApiFeature(this.config.url, this.config.device);
 
-    return apiFeature.getFeature(featureName, userID);
+    return apiFeature.getFeatures();
   }
 
   isFeatureEnabled(featureName: string, userID: string): Promise<any> {
-    const featurePromise = this.getFeature(featureName, userID);
+    const featurePromise = this.getFeatures();
 
     return featurePromise.then((feature: any) => {
       return feature !== undefined && feature.enabled ? true : false;

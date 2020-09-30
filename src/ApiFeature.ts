@@ -9,16 +9,16 @@ export class ApiFeature implements IFeature {
     this.device = device;
   }
 
-  getFeature(featureName: string, userID: string): Promise<any> {
-    const apiURL = this.url + `/${featureName}?device=${this.device}&user_id=${userID}`;
+  getFeatures(): Promise<any> {
+    const apiURL = this.url;
 
-    return fetch(apiURL, { method: 'get' })
+    return fetch(apiURL, { method: 'post', body: JSON.stringify({}) })
       .then(this.handleErrors)
       .then((response) => response.json())
       .then((response) => JSON.stringify(response))
       .catch((ex) => {
         // tslint:disable-next-line:no-console
-        console.error('Failed to fetch feature flags. ' + ex);
+        console.error('Falha ao buscar flags. ' + ex);
 
         throw Error(ex);
       });
