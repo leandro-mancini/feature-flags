@@ -10,7 +10,7 @@ export class ApiFeature implements IFeature {
   }
 
   getFeatures(): Promise<any> {
-    const apiURL = this.url;
+    const apiURL = this.url + '/flags/features';
 
     return fetch(apiURL, { method: 'post', body: JSON.stringify({}) })
       .then(this.handleErrors)
