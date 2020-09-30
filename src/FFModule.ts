@@ -24,10 +24,10 @@ export class FFModule {
     const featurePromise = this.getFeatures();
 
     return featurePromise.then((features: any) => {
-        // tslint:disable-next-line:no-console
-        console.log(features);
+      // tslint:disable-next-line:no-console
+      console.log(features);
 
-        return features;
+      return features;
     });
   }
 }
