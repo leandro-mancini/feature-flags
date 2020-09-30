@@ -1,5 +1,7 @@
 import { DEVICE } from './Globals';
 import { IFeature } from './IFeature';
+import { ApiResponse } from './models/ApiResponse';
+import { Feature } from './models/Feature';
 export class ApiFeature implements IFeature {
   url: string;
   device: DEVICE;
@@ -14,13 +16,14 @@ export class ApiFeature implements IFeature {
 
     return fetch(apiURL, { method: 'post', body: JSON.stringify({}) })
       .then(this.handleErrors)
-      .then((response) => {
-        // tslint:disable-next-line:no-console
-        console.log(response);
-
+      .then((response: Response) => {
         return response.json();
       })
-      .then((response) => {
+      .then((response: ApiResponse<Feature[]>) => {
+        if (response.data && response.data.length > 0) {
+          return response.data;
+        }
+
         return response;
       })
       .catch((ex) => {
@@ -31,7 +34,7 @@ export class ApiFeature implements IFeature {
       });
   }
 
-  handleErrors(response: any) {
+  handleErrors(response: Response) {
     if (!response.ok) {
       throw Error(response.statusText);
     }
