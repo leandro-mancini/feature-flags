@@ -1,3 +1,3 @@
 export interface IFeature {
-    getFeature(featureName: string, userID: string): Promise<any>;
+  getFeature(featureName: string, userID: string): Promise<any>;
 }
