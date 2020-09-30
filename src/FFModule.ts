@@ -20,13 +20,10 @@ export class FFModule {
     return apiFeature.getFeatures();
   }
 
-  isFeatureEnabled(featureName: string, userID: string): Promise<any> {
+  isFeatureEnabled(): Promise<any> {
     const featurePromise = this.getFeatures();
 
     return featurePromise.then((features: any) => {
-      // tslint:disable-next-line:no-console
-      console.log(features);
-
       return features;
     });
   }

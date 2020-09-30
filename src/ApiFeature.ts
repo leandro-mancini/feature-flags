@@ -14,7 +14,17 @@ export class ApiFeature implements IFeature {
 
     return fetch(apiURL, { method: 'post', body: JSON.stringify({}) })
       .then(this.handleErrors)
-      .then((response) => response.json())
+      .then((response) => {
+        // tslint:disable-next-line:no-console
+        console.log(response);
+
+        return response.json();
+      })
+      .then((response) => {
+        
+
+        return response;
+      })
       .catch((ex) => {
         // tslint:disable-next-line:no-console
         console.error('Falha ao buscar flags. ' + ex);
