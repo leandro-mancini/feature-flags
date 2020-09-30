@@ -1,6 +1,3 @@
-export const FeatureFlag = (name: string) => {
-  // tslint:disable-next-line:no-console
-  console.log(name);
+'use strict';
 
-  return `Olá ${name}`;
-};
+export { FFModule } from './FFModule';
