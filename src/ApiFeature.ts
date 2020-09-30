@@ -25,7 +25,7 @@ export class ApiFeature implements IFeature {
   }
 
   handleErrors(response: any) {
-    if (response.ok) {
+    if (!response.ok) {
       throw Error(response.statusText);
     }
 
