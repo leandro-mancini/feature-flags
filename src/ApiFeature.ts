@@ -50,7 +50,7 @@ export class ApiFeature implements IFeature {
     // tslint:disable-next-line:no-console
     console.log(featureName);
 
-    return lodash.find(items, featureName);
+    return lodash.find(items, { name: featureName });
   }
 
   getFeatures(): Promise<any> {

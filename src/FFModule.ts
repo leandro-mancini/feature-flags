@@ -38,6 +38,6 @@ export class FFModule {
   testeGetFeature(featureName: string): Observable<string> {
     const apiFeature = new ApiFeature(this.config.url, this.config.device);
 
-    return apiFeature.teste('teste');
+    return apiFeature.teste(featureName);
   }
 }
