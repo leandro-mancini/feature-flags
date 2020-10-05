@@ -24,7 +24,7 @@ export class FFModule {
   constructor(device: DEVICE, url: string) {
     this.config = new FFConfig(device, url);
 
-    this.teste().subscribe(res => this.ftr = res);
+    this.teste().subscribe((res) => (this.ftr = res));
   }
 
   getFeatures(): Promise<any> {
