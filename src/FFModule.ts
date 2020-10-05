@@ -47,7 +47,7 @@ export class FFModule {
     let type;
 
     if (item.type === 'B') {
-      type = JSON.parse(item.type);
+      type = JSON.parse(item.value);
     }
 
     return type;
