@@ -6,6 +6,7 @@ import { FFConfig } from './FFConfig';
 import { DEVICE } from './Globals';
 import { map } from 'rxjs/operators';
 import { Feature } from './models/Feature';
+import * as lodash from 'lodash';
 
 export class FFModule {
   // feature: Feature;
@@ -13,18 +14,22 @@ export class FFModule {
   config: FFConfig;
   // featureName: string;
 
-  get feature(): any {
-    return this.ftr;
+  getFeature(featureName: string): any {
+    return lodash.find(this.features, { name: featureName });
   }
-  set feature(value: any) {
-    this.ftr = value;
+
+  get features(): Feature[] {
+    return this.FEATURES;
   }
-  ftr: any;
+  set features(value: Feature[]) {
+    this.FEATURES = value;
+  }
+  FEATURES: Feature[] = [];
 
   constructor(device: DEVICE, url: string) {
     this.config = new FFConfig(device, url);
 
-    this.teste().subscribe((res) => (this.ftr = res));
+    this.teste().subscribe((res) => (this.FEATURES = res));
   }
 
   getFeatures(): Promise<any> {
