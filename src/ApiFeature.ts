@@ -2,6 +2,7 @@ import { DEVICE } from './Globals';
 import { IFeature } from './IFeature';
 import { ApiResponse } from './models/ApiResponse';
 import { Feature } from './models/Feature';
+import { Observable, of } from 'rxjs';
 export class ApiFeature implements IFeature {
   url: string;
   device: DEVICE;
@@ -9,6 +10,10 @@ export class ApiFeature implements IFeature {
   constructor(url: string, device: DEVICE) {
     this.url = url;
     this.device = device;
+  }
+
+  teste(): Observable<any> {
+    return of('teste');
   }
 
   getFeatures(): Promise<any> {
