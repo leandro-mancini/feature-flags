@@ -3,6 +3,9 @@ import { IFeature } from './IFeature';
 import { ApiResponse } from './models/ApiResponse';
 import { Feature } from './models/Feature';
 import { Observable, of } from 'rxjs';
+import { mergeMap, map, finalize } from 'rxjs/operators';
+import * as lodash from 'lodash';
+
 export class ApiFeature implements IFeature {
   url: string;
   device: DEVICE;
@@ -12,7 +15,21 @@ export class ApiFeature implements IFeature {
     this.device = device;
   }
 
-  teste(): Observable<any> {
+  teste(featureName?: string): Observable<any> {
+    if (featureName) {
+      return this.testeGetFeatureName(featureName);
+    }
+
+    return this.testeGetFeatures();
+  }
+
+  testeGetFeatureName(featureName: string): Observable<any> {
+    return this.testeGetFeatures().pipe(
+      map(items => this.testeMapFeature(items))
+    );
+  }
+
+  testeGetFeatures(): Observable<any> {
     const apiURL = this.url + '/flags/features';
 
     return Observable.create((observer: any) => {
@@ -27,6 +44,10 @@ export class ApiFeature implements IFeature {
         })
         .catch((err) => observer.error(err));
     });
+  }
+
+  testeMapFeature(items: any[]): string {
+    return 'teste';
   }
 
   getFeatures(): Promise<any> {
