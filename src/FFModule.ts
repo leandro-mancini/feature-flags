@@ -13,10 +13,18 @@ export class FFModule {
   config: FFConfig;
   // featureName: string;
 
+  get feature(): any {
+    return this.ftr;
+  }
+  set feature(value: any) {
+    this.ftr = value;
+  }
+  ftr: any;
+
   constructor(device: DEVICE, url: string) {
     this.config = new FFConfig(device, url);
 
-    this.getFeatures();
+    this.teste().subscribe(res => this.ftr = res);
   }
 
   getFeatures(): Promise<any> {
