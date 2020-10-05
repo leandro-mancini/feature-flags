@@ -45,6 +45,11 @@ export class ApiFeature implements IFeature {
   }
 
   testeMapFeature(items: any[], featureName: string): string {
+    // tslint:disable-next-line:no-console
+    console.log(items);
+    // tslint:disable-next-line:no-console
+    console.log(featureName);
+
     return lodash.find(items, featureName);
   }
 
