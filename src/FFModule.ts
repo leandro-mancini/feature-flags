@@ -40,15 +40,13 @@ export class FFModule {
   testeGetFeature(featureName: string): Observable<any> {
     const apiFeature = new ApiFeature(this.config.url, this.config.device);
 
-    return apiFeature.teste(featureName).pipe(
-      map((item: Feature) => this.testeTransformType(item))
-    );
+    return apiFeature.teste(featureName).pipe(map((item: Feature) => this.testeTransformType(item)));
   }
 
   testeTransformType(item: Feature) {
     let type;
 
-    if (item.type === "B") {
+    if (item.type === 'B') {
       type = JSON.parse(item.type);
     }
 
