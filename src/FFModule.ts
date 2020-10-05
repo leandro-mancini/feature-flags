@@ -14,13 +14,13 @@ export class FFModule {
   config: FFConfig;
   // featureName: string;
 
-  get ffeature(): Feature {
-    const a = Object.arguments(this.ffeature);
+  get ffeature(): string {
+    const args = Array.prototype.slice.call(arguments);
 
     // tslint:disable-next-line:no-console
-    console.log(a);
+    console.log(args);
 
-    return lodash.find(this.features, { name: 'featureName' }) as Feature;
+    return 'teste';
   }
 
   getFeature(featureName: string): any {
