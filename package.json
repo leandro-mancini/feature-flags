@@ -1,6 +1,6 @@
 {
   "name": "feature-flags-teste",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Feature Flags",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
