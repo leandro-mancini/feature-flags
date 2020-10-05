@@ -1,5 +1,6 @@
 'use strict';
 
+import { Observable, of } from 'rxjs';
 import { ApiFeature } from './ApiFeature';
 import { FFConfig } from './FFConfig';
 import { DEVICE } from './Globals';
@@ -26,5 +27,11 @@ export class FFModule {
     return featurePromise.then((features: any) => {
       return features;
     });
+  }
+
+  teste(): Observable<any> {
+    const apiFeature = new ApiFeature(this.config.url, this.config.device);
+
+    return of(apiFeature.getFeatures());
   }
 }
