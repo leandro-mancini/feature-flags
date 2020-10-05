@@ -24,9 +24,7 @@ export class ApiFeature implements IFeature {
   }
 
   testeGetFeatureName(featureName: string): Observable<any> {
-    return this.testeGetFeatures().pipe(
-      map(items => this.testeMapFeature(items))
-    );
+    return this.testeGetFeatures().pipe(map((items) => this.testeMapFeature(items)));
   }
 
   testeGetFeatures(): Observable<any> {
