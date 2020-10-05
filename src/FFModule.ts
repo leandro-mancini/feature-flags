@@ -32,6 +32,6 @@ export class FFModule {
   teste(): Observable<any> {
     const apiFeature = new ApiFeature(this.config.url, this.config.device);
 
-    return of(apiFeature.teste());
+    return apiFeature.teste();
   }
 }
