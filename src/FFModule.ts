@@ -15,7 +15,7 @@ export class FFModule {
   // featureName: string;
 
   get ffeature(): Feature {
-    const a = Object.prototype.toLocaleString.call(arguments);
+    const a = Object.arguments;
 
     // tslint:disable-next-line:no-console
     console.log(a);
