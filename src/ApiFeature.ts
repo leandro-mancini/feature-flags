@@ -24,7 +24,7 @@ export class ApiFeature implements IFeature {
   }
 
   testeGetFeatureName(featureName: string): Observable<any> {
-    return this.testeGetFeatures().pipe(map((items) => this.testeMapFeature(items)));
+    return this.testeGetFeatures().pipe(map((items) => this.testeMapFeature(items, featureName)));
   }
 
   testeGetFeatures(): Observable<any> {
@@ -44,8 +44,8 @@ export class ApiFeature implements IFeature {
     });
   }
 
-  testeMapFeature(items: any[]): string {
-    return 'teste';
+  testeMapFeature(items: any[], featureName: string): string {
+    return lodash.find(items, featureName);
   }
 
   getFeatures(): Promise<any> {
