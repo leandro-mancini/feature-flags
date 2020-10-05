@@ -15,12 +15,10 @@ export class FFModule {
   // featureName: string;
 
   get ffeature(): Feature {
-    const a = Object.arguments;
+    const a = Object.arguments(this.ffeature);
 
     // tslint:disable-next-line:no-console
     console.log(a);
-    // tslint:disable-next-line:no-console
-    console.log(typeof arguments);
 
     return lodash.find(this.features, { name: 'featureName' }) as Feature;
   }
