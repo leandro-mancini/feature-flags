@@ -14,6 +14,17 @@ export class FFModule {
   config: FFConfig;
   // featureName: string;
 
+  get ffeature(): Feature {
+    const a = Object.prototype.toLocaleString.call(arguments);
+
+    // tslint:disable-next-line:no-console
+    console.log(a);
+    // tslint:disable-next-line:no-console
+    console.log(typeof arguments);
+
+    return lodash.find(this.features, { name: 'featureName' }) as Feature;
+  }
+
   getFeature(featureName: string): any {
     return lodash.find(this.features, { name: featureName });
   }
