@@ -15,18 +15,20 @@ export class FFModule {
     this.config = new FFConfig(device, url);
   }
 
-  getFeatures(): Promise<any> {
+  getFeatures(): Observable<any> {
     const apiFeature = new ApiFeature(this.config.url, this.config.device);
 
-    return apiFeature.getFeatures();
+    return of(apiFeature.getFeatures());
   }
 
-  isFeatureEnabled(): Promise<any> {
+  isFeatureEnabled(): Observable<any> {
     const featurePromise = this.getFeatures();
 
-    return featurePromise.then((features: any) => {
-      return features;
-    });
+    return of(featurePromise);
+
+    // return featurePromise.then((features: any) => {
+    //   return features;
+    // });
   }
 
   teste(): Observable<any> {
