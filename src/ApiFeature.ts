@@ -13,7 +13,6 @@ export class ApiFeature implements IFeature {
   }
 
   teste(): Observable<any> {
-    // return of('teste');
     const apiURL = this.url + '/flags/features';
 
     return Observable.create((observer: any) => {
@@ -23,15 +22,8 @@ export class ApiFeature implements IFeature {
           return response.json();
         })
         .then((response: ApiResponse<Feature[]>) => {
-          if (response.data && response.data.length > 0) {
-            observer.next(response.data);
-            // return response.data;
-          }
-
-          observer.next(response);
+          observer.next(response.data);
           observer.complete();
-
-          return response;
         })
         .catch((err) => observer.error(err));
     });
