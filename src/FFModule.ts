@@ -15,6 +15,8 @@ export class FFModule {
 
   constructor(device: DEVICE, url: string) {
     this.config = new FFConfig(device, url);
+
+    this.getFeatures();
   }
 
   getFeatures(): Promise<any> {
